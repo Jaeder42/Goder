@@ -1,0 +1,12 @@
+html {
+  background-color: bisque;
+  color: rgb(58, 74, 88);
+  font-family: 'Press Start 2P', cursive;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
