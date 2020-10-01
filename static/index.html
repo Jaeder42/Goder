@@ -1,15 +1,37 @@
 <html>
 
 <head>
-    <title>Go Website</title>
+    <title>{{ .Title }}</title>
     <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="./style.css">
+    <style>
+        html {
+            background-color: bisque;
+            color: rgb(58, 74, 88);
+            font-family: 'Press Start 2P', cursive;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            max-width: 600px;
+        }
+
+        p {
+            text-align: left;
+        }
+    </style>
 </head>
 
 <body>
-    <h2>Static Website</h2>
-    <h3>Served with GoLang</h3>
+    {{ .Body }}
 </body>
 
 </html>
