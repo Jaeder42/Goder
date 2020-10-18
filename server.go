@@ -10,7 +10,7 @@ import (
 )
 
 func main() {
-	t, err := template.ParseFiles("static/index.html")
+	t, err := template.ParseFiles("./static/index.html")
 
 	if err != nil {
 		log.Fatal(err)
