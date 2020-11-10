@@ -25,7 +25,7 @@ func RenderHandlerHOF(t *template.Template) func(http.ResponseWriter, *http.Requ
 
 		body := "<h1>Oh oh</h1><h2>We couldn't find that page</h2>"
 		title := "¯\\_(ツ)_/¯"
-		path := r.URL.Path
+		path := strings.ToLower(r.URL.Path)
 		if path == "/" {
 			path = "/index"
 		}
