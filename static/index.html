@@ -1,37 +1,73 @@
 <html>
-
-<head>
+  <head>
     <title>{{ .Title }}</title>
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap"
+      rel="stylesheet"
+    />
 
     <style>
-        html {
-            background-color: bisque;
-            color: rgb(58, 74, 88);
-            font-family: 'Press Start 2P', cursive;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-        }
+      html {
+        background-color: #b9afc4;
+        color: rgb(58, 74, 88);
+        font-family: "Ubuntu Mono", monospace;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      h1 {
+        font-family: "Press Start 2P", cursive;
+      }
+      body {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+        text-align: center;
+        max-width: 600px;
+        min-height: 100vh;
+        margin: 0;
+      }
 
-        body {
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            max-width: 600px;
-        }
+      .footer {
+        padding-bottom: 10px;
+      }
+      a {
+        color: rgb(58, 74, 88);
+        text-decoration: none;
+        font-size: 26px;
+        font-family: "Press Start 2P", cursive;
+      }
+      p {
+        text-align: left;
+        font-size: 20px;
+      }
 
-        p {
-            text-align: left;
-        }
+      .header > a {
+        font-family: "Ubuntu Mono", monospace !important;
+        font-size: 26px;
+        margin: 0px 10px;
+      }
+      .content {
+        padding-top: 10px;
+        flex: 1;
+      }
     </style>
-</head>
+  </head>
 
-<body>
-    {{ .Body }}
-</body>
-
+  <body>
+    <div class="header">
+      <a href="/">Home</a>
+      <a href="/devLog">devLog</a>
+    </div>
+    <div class="content">
+      {{ .Body }}
+    </div>
+    <div class="footer">©Jæder 2020</div>
+  </body>
 </html>

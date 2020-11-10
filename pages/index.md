@@ -1,3 +1,5 @@
-# Welcome
-## This web is rendered without JS
-This is a text
+# Jæder
+
+## Developer and human (promise)
+
+Check out the devLog for some stories about tech

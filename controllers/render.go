@@ -10,6 +10,10 @@ import (
 	"text/template"
 )
 
+func formatLink(link string) string {
+	return strings.Replace(strings.ToLower(link), " ", "-", 1)
+}
+
 // RenderHandlerHOF returns a function that renders static web page
 func RenderHandlerHOF(t *template.Template) func(http.ResponseWriter, *http.Request) {
 	return func(w http.ResponseWriter, r *http.Request) {
@@ -21,8 +25,11 @@ func RenderHandlerHOF(t *template.Template) func(http.ResponseWriter, *http.Requ
 
 		body := "<h1>Oh oh</h1><h2>We couldn't find that page</h2>"
 		title := "¯\\_(ツ)_/¯"
-
-		file, err := os.Open("pages" + r.URL.Path + ".md")
+		path := r.URL.Path
+		if path == "/" {
+			path = "/index"
+		}
+		file, err := os.Open("pages" + path + ".md")
 		md, err := ioutil.ReadAll(file)
 		if err == nil {
 			body = ""
@@ -33,7 +40,11 @@ func RenderHandlerHOF(t *template.Template) func(http.ResponseWriter, *http.Requ
 					title = strings.Replace(element, "# ", "", 1)
 				} else if strings.HasPrefix(element, "## ") {
 					body += strings.Replace(element, "## ", "<h2>", 1) + "</h2>"
-				} else {
+				} else if strings.HasPrefix(element, "### ") {
+					body += strings.Replace(element, "### ", "<h3>", 1) + "</h3>"
+				} else if strings.HasPrefix(element, "~ ") {
+					body += strings.Replace(element, "~ ", "<a class='bloglink' href='"+"/devLog/"+formatLink(strings.Replace(element, "~ ", "", 1))+"'>", 1) + "</a>"
+				} else if len(element) > 0 {
 					body += "<p>" + element + "</p>"
 				}
 
