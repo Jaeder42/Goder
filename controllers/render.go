@@ -11,7 +11,7 @@ import (
 )
 
 func formatLink(link string) string {
-	return strings.Replace(strings.ToLower(link), " ", "-", 1)
+	return strings.ReplaceAll(strings.ToLower(link), " ", "-")
 }
 
 // RenderHandlerHOF returns a function that renders static web page
@@ -43,7 +43,7 @@ func RenderHandlerHOF(t *template.Template) func(http.ResponseWriter, *http.Requ
 				} else if strings.HasPrefix(element, "### ") {
 					body += strings.Replace(element, "### ", "<h3>", 1) + "</h3>"
 				} else if strings.HasPrefix(element, "~ ") {
-					body += strings.Replace(element, "~ ", "<a class='bloglink' href='"+"/devLog/"+formatLink(strings.Replace(element, "~ ", "", 1))+"'>", 1) + "</a>"
+					body += strings.Replace(element, "~ ", "<div class='bloglink-container'><a class='bloglink' href='"+"/devLog/"+formatLink(strings.Replace(element, "~ ", "", 1))+"'>", 1) + "</a></div>"
 				} else if len(element) > 0 {
 					body += "<p>" + element + "</p>"
 				}

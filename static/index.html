@@ -42,6 +42,11 @@
         text-decoration: none;
         font-size: 26px;
         font-family: "Press Start 2P", cursive;
+        transition: font-size 0.3s;
+        padding: 10px;
+      }
+      a:hover {
+        font-size: 30px;
       }
       p {
         text-align: left;
@@ -52,6 +57,10 @@
         font-family: "Ubuntu Mono", monospace !important;
         font-size: 26px;
         margin: 0px 10px;
+      }
+      .bloglink-container {
+        min-height: 50px;
+        margin-bottom: 10px;
       }
       .content {
         padding-top: 10px;
@@ -64,6 +73,7 @@
     <div class="header">
       <a href="/">Home</a>
       <a href="/devLog">devLog</a>
+      <a href="/about">About</a>
     </div>
     <div class="content">
       {{ .Body }}
