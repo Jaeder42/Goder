@@ -18,8 +18,8 @@ func main() {
 
 	http.HandleFunc("/", controllers.RenderHandlerHOF(t))
 
-	fmt.Printf("Starting server at port 8080\n")
-	if err := http.ListenAndServeTLS(":8080", "/etc/letsencrypt/live/jaeder42.tech/fullchain.pem", "/etc/letsencrypt/live/jaeder42.tech/privkey.pem", nil); err != nil {
+	fmt.Printf("Starting server at port 80\n")
+	if err := http.ListenAndServeTLS(":80", "/etc/letsencrypt/live/jaeder42.tech/fullchain.pem", "/etc/letsencrypt/live/jaeder42.tech/privkey.pem", nil); err != nil {
 		log.Fatal(err)
 	}
 }
