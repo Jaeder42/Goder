@@ -17,4 +17,5 @@ You are now about to develop another endpoint, but this time the requirements ar
 ### Why does it matter?
 
 It does seem a little petty to focus so much on how someone presents things. But imagine being the colleague in both those instances, they think they were helping a colleague do their best work. If this language is used everytime they lift an issue or suggest improvements, it will always seem like they are the reason something is taking longer than expected and not that you missed something or are changing something for the better.
+It's exhausting, trust me.
 In a team it is up to everyone to make sure the product is the best it can be, and if one or more team members are constantly deflecting the responsibility, are they really part of the team?
