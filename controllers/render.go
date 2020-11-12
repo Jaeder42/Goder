@@ -26,6 +26,7 @@ func RenderHandlerHOF(t *template.Template) func(http.ResponseWriter, *http.Requ
 		body := "<h1>Oh oh</h1><h2>We couldn't find that page</h2>"
 		title := "¯\\_(ツ)_/¯"
 		description := "Jæder42"
+		image := "preview.png"
 		path := strings.ToLower(r.URL.Path)
 		if path == "/" {
 			path = "/index"
@@ -46,6 +47,7 @@ func RenderHandlerHOF(t *template.Template) func(http.ResponseWriter, *http.Requ
 					body += strings.Replace(element, "### ", "<h3>", 1) + "</h3>"
 				} else if strings.HasPrefix(element, "% ") {
 					body += strings.Replace(element, "% ", "<img src='/static/images/", 1) + "'/>"
+					image = strings.Replace(element, "% ", "", 1)
 				} else if strings.HasPrefix(element, "~ ") {
 					body += strings.Replace(element, "~ ", "<div class='bloglink-container'><a class='bloglink' href='"+"/devLog/"+formatLink(strings.Replace(element, "~ ", "", 1))+"'>", 1) + "</a></div>"
 				} else if len(element) > 0 {
@@ -60,10 +62,12 @@ func RenderHandlerHOF(t *template.Template) func(http.ResponseWriter, *http.Requ
 			Body        string
 			Title       string
 			Description string
+			Image       string
 		}{
 			Title:       title,
 			Body:        body,
 			Description: description,
+			Image:       image,
 		}
 		if err := t.Execute(&tpl, data); err != nil {
 			http.Error(w, "Something went wrong.", http.StatusInternalServerError)
