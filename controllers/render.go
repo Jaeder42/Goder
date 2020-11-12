@@ -63,11 +63,13 @@ func RenderHandlerHOF(t *template.Template) func(http.ResponseWriter, *http.Requ
 			Title       string
 			Description string
 			Image       string
+			URL         string
 		}{
 			Title:       title,
 			Body:        body,
 			Description: description,
 			Image:       image,
+			URL:         "https://jaeder42.tech" + path,
 		}
 		if err := t.Execute(&tpl, data); err != nil {
 			http.Error(w, "Something went wrong.", http.StatusInternalServerError)
