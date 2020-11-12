@@ -76,7 +76,7 @@ func RenderHandlerHOF(t *template.Template) func(http.ResponseWriter, *http.Requ
 			return
 		}
 		result := tpl.String()
-
+		fmt.Println("Rendering " + path)
 		fmt.Fprintf(w, result)
 	}
 }
