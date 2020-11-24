@@ -2,8 +2,10 @@ package main
 
 import (
 	"fmt"
+	"io/ioutil"
 	"log"
 	"net/http"
+	"os"
 	"text/template"
 
 	"./controllers"
@@ -11,7 +13,14 @@ import (
 
 func main() {
 	t, err := template.ParseFiles("./static/index.html")
-
+	if err != nil {
+		log.Fatal(err)
+	}
+	styleFile, err := os.Open("./static/style.goder")
+	if err != nil {
+		log.Fatal(err)
+	}
+	style, err := ioutil.ReadAll(styleFile)
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -20,7 +29,7 @@ func main() {
 
 	http.Handle("/static/", http.StripPrefix("/static", fs))
 
-	http.HandleFunc("/", controllers.RenderHandlerHOF(t))
+	http.HandleFunc("/", controllers.RenderHandlerHOF(t, string(style)))
 
 	fmt.Println("Starting server at port 443")
 	if err := http.ListenAndServeTLS(":443", "/etc/letsencrypt/live/jaeder42.tech/fullchain.pem", "/etc/letsencrypt/live/jaeder42.tech/privkey.pem", nil); err != nil {

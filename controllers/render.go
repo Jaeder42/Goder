@@ -15,7 +15,7 @@ func formatLink(link string) string {
 }
 
 // RenderHandlerHOF returns a function that renders static web page
-func RenderHandlerHOF(t *template.Template) func(http.ResponseWriter, *http.Request) {
+func RenderHandlerHOF(t *template.Template, style string) func(http.ResponseWriter, *http.Request) {
 	return func(w http.ResponseWriter, r *http.Request) {
 
 		if r.Method != "GET" {
@@ -64,12 +64,14 @@ func RenderHandlerHOF(t *template.Template) func(http.ResponseWriter, *http.Requ
 			Description string
 			Image       string
 			URL         string
+			Style       string
 		}{
 			Title:       title,
 			Body:        body,
 			Description: description,
 			Image:       image,
 			URL:         "https://jaeder42.tech" + path,
+			Style:       style,
 		}
 		if err := t.Execute(&tpl, data); err != nil {
 			http.Error(w, "Something went wrong.", http.StatusInternalServerError)
