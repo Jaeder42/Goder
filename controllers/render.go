@@ -38,6 +38,7 @@ func RenderHandlerHOF(t *template.Template, style string) func(http.ResponseWrit
 			arr := strings.Split(string(md), "\n")
 			for _, element := range arr {
 				if strings.HasPrefix(element, "# ") {
+					// Refactor to use count for <hx>
 					body += strings.Replace(element, "# ", "<h1>", 1) + "</h1>"
 					title = strings.Replace(element, "# ", "", 1)
 				} else if strings.HasPrefix(element, "## ") {
