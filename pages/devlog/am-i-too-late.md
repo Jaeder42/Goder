@@ -1,6 +1,6 @@
 # Am I too late?
 
-## or 
+## or finding inspiration
 
 I was working on my passion project a few days last week, and by days I mean during lunches and late nights after the baby falls asleep. I wanted to give users some new graphs to help with making decisions. Got a POC using data already available, and was pretty happy.
 
