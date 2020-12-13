@@ -28,7 +28,9 @@ func RenderHandlerHOF(t *template.Template, style string, darktheme string) func
 
 		themeCookie, err := r.Cookie("theme")
 		if err != nil {
-			log.Println(err)
+
+			styleString = darktheme + style
+
 		} else if themeCookie.Value == "light" {
 			styleString = style
 		} else {

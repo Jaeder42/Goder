@@ -4,7 +4,7 @@
 
 I was working on my passion project a few days last week, and by days I mean during lunches and late nights after the baby falls asleep. I wanted to give users some new graphs to help with making decisions. Got a POC using data already available, and was pretty happy.
 
-Some background on the passion project, StateTrak. It tracks your stats during games of Counter-Strik and gives users access to this data in a mobile app.
+Some background on the passion project, StateTrak. It tracks your stats during games of Counter-Strike and gives users access to this data in a mobile app.
 
 Cut to earlier this week, Counter-Strike has a new update. It looks pretty cool, some new content and feaures. But as I scroll I see that they have added graphs... With some of the data I had added as well...
 
