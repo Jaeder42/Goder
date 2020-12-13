@@ -29,11 +29,10 @@ func RenderHandlerHOF(t *template.Template, style string, darktheme string) func
 		themeCookie, err := r.Cookie("theme")
 		if err != nil {
 			log.Println(err)
-		} else if themeCookie.Value == "dark" {
-			fmt.Println(themeCookie.Value, themeCookie.Value == "dark")
-			styleString = darktheme + style
-		} else {
+		} else if themeCookie.Value == "light" {
 			styleString = style
+		} else {
+			styleString = darktheme + style
 		}
 
 		body := "<h1>Oh oh</h1><h2>We couldn't find that page</h2>"
