@@ -2,6 +2,6 @@
 
 ## Developer and human (promise)
 
-% floppyOp.png
+% floppyOpAlt.png
 
 Check out the devLog for some stories about tech

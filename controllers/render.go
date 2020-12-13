@@ -4,6 +4,7 @@ import (
 	"bytes"
 	"fmt"
 	"io/ioutil"
+	"log"
 	"net/http"
 	"os"
 	"strings"
@@ -15,12 +16,24 @@ func formatLink(link string) string {
 }
 
 // RenderHandlerHOF returns a function that renders static web page
-func RenderHandlerHOF(t *template.Template, style string) func(http.ResponseWriter, *http.Request) {
+func RenderHandlerHOF(t *template.Template, style string, darktheme string) func(http.ResponseWriter, *http.Request) {
 	return func(w http.ResponseWriter, r *http.Request) {
 
 		if r.Method != "GET" {
 			http.Error(w, "Method is not supported.", http.StatusNotFound)
 			return
+		}
+
+		styleString := style
+
+		themeCookie, err := r.Cookie("theme")
+		if err != nil {
+			log.Println(err)
+		} else if themeCookie.Value == "dark" {
+			fmt.Println(themeCookie.Value, themeCookie.Value == "dark")
+			styleString = darktheme + style
+		} else {
+			styleString = style
 		}
 
 		body := "<h1>Oh oh</h1><h2>We couldn't find that page</h2>"
@@ -72,14 +85,14 @@ func RenderHandlerHOF(t *template.Template, style string) func(http.ResponseWrit
 			Description: description,
 			Image:       image,
 			URL:         "https://jaeder42.tech" + path,
-			Style:       style,
+			Style:       styleString,
 		}
 		if err := t.Execute(&tpl, data); err != nil {
 			http.Error(w, "Something went wrong.", http.StatusInternalServerError)
 			return
 		}
 		result := tpl.String()
-		fmt.Println("Rendering " + path)
+		log.Println("Rendering " + path)
 		fmt.Fprintf(w, result)
 	}
 }

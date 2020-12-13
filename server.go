@@ -20,6 +20,12 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
+
+	darkFile, err := os.Open("./static/dark-theme.goder")
+	if err != nil {
+		log.Fatal(err)
+	}
+	dark, err := ioutil.ReadAll(darkFile)
 	style, err := ioutil.ReadAll(styleFile)
 	if err != nil {
 		log.Fatal(err)
@@ -29,7 +35,7 @@ func main() {
 
 	http.Handle("/static/", http.StripPrefix("/static", fs))
 
-	http.HandleFunc("/", controllers.RenderHandlerHOF(t, string(style)))
+	http.HandleFunc("/", controllers.RenderHandlerHOF(t, string(style), string(dark)))
 
 	fmt.Println("Starting server at port 443")
 	if err := http.ListenAndServeTLS(":443", "/etc/letsencrypt/live/jaeder42.tech/fullchain.pem", "/etc/letsencrypt/live/jaeder42.tech/privkey.pem", nil); err != nil {

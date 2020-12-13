@@ -1,0 +1,8 @@
+html {
+  background-color: #1A0025 !important;
+  color: rgb(215, 180, 230) !important;
+ 
+}
+a {
+  color: rgb(215, 180, 230) !important;
+}
