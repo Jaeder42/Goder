@@ -21,7 +21,12 @@ body {
   min-height: 100vh;
   margin: 0;
 }
-
+.links{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
 .footer {
   padding-bottom: 10px;
 }
@@ -64,4 +69,5 @@ img {
 .content {
   padding-top: 10px;
   flex: 1;
+  width: 100%%;
 }
