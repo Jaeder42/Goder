@@ -1,6 +1,8 @@
 # Stress
 ## or self inflicted anxiety
 
+% stress.png
+
 You are responsible for leading your team in a workshop, the team has done this without you, and this is your first time. You have a feeling that you've forgotten something, or maybe even don't know about everything. But noone says anything, you start to hear a little voice in your head "They're just waiting for you to get to it". You ignore it, and it goes away. For now. The feeling start to build back up, your heart rate increases. "They're still waiting for the thing you've obviously missed". Breathe.
 
 You focus back up, you know what you have to do and are sure that you haven't missed anything. Drop it, you have to focus on the things you are doing at the moment. There is no point in worrying about what you may or may not have forgotten. "You don't know enough to not know what you're missing" the voice whispers in your brain, and again your heart rate increases. 
