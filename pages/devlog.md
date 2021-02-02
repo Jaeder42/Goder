@@ -6,6 +6,7 @@
 ~ Am I too late
 ~ Language Matters
 ~ Nodejs heap out of memory
+~ HTTP 524
 ~ Impostor Syndrome
 ~ Flutter over React
 ~ My almost year at a startup
