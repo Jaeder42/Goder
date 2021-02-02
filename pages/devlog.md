@@ -5,6 +5,7 @@
 ~ Stress
 ~ Am I too late
 ~ Language Matters
+~ Nodejs heap out of memory
 ~ Impostor Syndrome
 ~ Flutter over React
 ~ My almost year at a startup
