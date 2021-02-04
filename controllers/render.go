@@ -53,7 +53,7 @@ func RenderHandlerHOF(t *template.Template, style string, darktheme string) func
 			for _, element := range arr {
 				if strings.HasPrefix(element, "# ") {
 					// Refactor to use count for <hx>
-					body += strings.Replace(element, "# ", "<h1>", 1) + "</h1>"
+					body += strings.Replace(element, "# ", "<div class='title-container'><h1>", 1) + "</h1></div>"
 					title = strings.Replace(element, "# ", "", 1)
 				} else if strings.HasPrefix(element, "## ") {
 					body += strings.Replace(element, "## ", "<h2>", 1) + "</h2>"
