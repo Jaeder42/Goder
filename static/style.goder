@@ -50,6 +50,12 @@ a {
   transition: font-size 0.3s;
   padding: 10px;
 }
+.small-link {
+  font-size: 15px;
+}
+.small-link:hover{
+  font-size: 17px;
+}
 a:hover {
   font-size: 30px;
 }
