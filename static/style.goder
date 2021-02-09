@@ -35,7 +35,7 @@ body {
 }
 .links{
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
   justify-content: center;
 }
@@ -55,6 +55,9 @@ a {
 }
 .small-link:hover{
   font-size: 17px;
+}
+.no-resize:hover {
+  font-size: 15px;
 }
 a:hover {
   font-size: 30px;
