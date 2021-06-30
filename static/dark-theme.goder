@@ -1,11 +1,11 @@
 html {
   background-color: #0a080f !important;
   color: #9d00ff !important;
- 
+
 }
 .title-container {
   padding: 20px 0px 5px 0px;
-   backdrop-filter: blur(4px);
+  background-color: #0a080f !important;
 
 }
 a {

@@ -8,7 +8,7 @@ import (
 	"os"
 	"text/template"
 
-	"./controllers"
+	"goder/controllers"
 )
 
 func main() {

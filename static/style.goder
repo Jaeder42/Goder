@@ -19,8 +19,7 @@ h1 {
   position: -webkit-sticky;
   position: sticky;
   top: 0px;
-  backdrop-filter: blur(10px);
-   -webkit-backdrop-filter: blur(10px);
+  background-color: #b9afc4;
 }
 body {
   display: flex;
@@ -87,7 +86,7 @@ img {
   max-width: 90%%;
 }
 .start > img {
- 
+
   animation-name: flash;
   animation-duration: 7s;
     animation-iteration-count: infinite;
@@ -110,7 +109,7 @@ img {
   55%%   {filter: drop-shadow(0px 0px 8px #994af3);}
   75%%   {filter: drop-shadow(0px 0px 6px #994af3);}
   100%%   {filter: drop-shadow(0px 0px 7px #994af3);}
-  
+
 }
 
 
