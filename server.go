@@ -10,6 +10,9 @@ import (
 
 	"goder/controllers"
 )
+func redirectTLS(w http.ResponseWriter, r *http.Request) {
+		http.Redirect(w, r, "https://" + r.Host +r.RequestURI, http.StatusMovedPermanently)
+}
 
 func main() {
 	t, err := template.ParseFiles("./static/index.html")
@@ -45,7 +48,9 @@ func main() {
 			if err := http.ListenAndServe(":8080", nil); err != nil {
 				log.Fatal(err)
 			}
-
 		}
 	}
+	if err := http.ListenAndServe(":80", http.HandlerFunc(redirectTLS)); err != nil {
+		log.Fatal(err)
+}
 }
