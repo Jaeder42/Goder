@@ -10,11 +10,16 @@ import (
 
 	"goder/controllers"
 )
+
 func redirectTLS(w http.ResponseWriter, r *http.Request) {
-		http.Redirect(w, r, "https://" + r.Host +r.RequestURI, http.StatusMovedPermanently)
+	http.Redirect(w, r, "https://"+r.Host+r.RequestURI, http.StatusMovedPermanently)
 }
 
 func main() {
+
+	go http.ListenAndServe(":80", http.HandlerFunc(redirectTLS))
+	mux := http.NewServeMux()
+
 	t, err := template.ParseFiles("./static/index.html")
 	if err != nil {
 		log.Fatal(err)
@@ -36,9 +41,9 @@ func main() {
 
 	fs := http.FileServer(http.Dir("./static"))
 
-	http.Handle("/static/", http.StripPrefix("/static", fs))
+	mux.Handle("/static/", http.StripPrefix("/static", fs))
 
-	http.HandleFunc("/", controllers.RenderHandlerHOF(t, string(style), string(dark)))
+	mux.HandleFunc("/", controllers.RenderHandlerHOF(t, string(style), string(dark)))
 
 	fmt.Println("Starting server at port 443")
 	if err := http.ListenAndServeTLS(":443", "/etc/letsencrypt/live/jaeder42.tech/fullchain.pem", "/etc/letsencrypt/live/jaeder42.tech/privkey.pem", nil); err != nil {
@@ -50,7 +55,7 @@ func main() {
 			}
 		}
 	}
-	if err := http.ListenAndServe(":80", http.HandlerFunc(redirectTLS)); err != nil {
-		log.Fatal(err)
-}
+	// 	if err := http.ListenAndServe(":80", http.HandlerFunc(redirectTLS)); err != nil {
+	// 		log.Fatal(err)
+	// }
 }
