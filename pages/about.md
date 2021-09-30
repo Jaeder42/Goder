@@ -16,5 +16,5 @@ Any opionions shared in the devLog are my own, and do not reflect the opinions o
         <a target="_blank" href="https://www.twitter.com/jaeder42/">Twitter</a>
         <a target="_blank" href="https://github.com/Jaeder42">GitHub</a>
         <a target="_blank" href="https://statetrak.online">StateTrak</a>
-        <a target="_blank" href="mailto:dev@jaeder42.tech">Email</a>
+        <a target="_blank" href="mailto:jaeder@protonmail.com">Email</a>
         </div>
