@@ -1,6 +1,6 @@
 # Jæder
 
-## Developer and human (promise)
+## Weird computer person
 
 <div class="start">
 % floppyOpAlt.png
