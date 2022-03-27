@@ -61,10 +61,7 @@ func RenderHandlerHOF(t *template.Template, style string, darktheme string) func
 					description = strings.Replace(element, "## ", "", 1)
 				} else if strings.HasPrefix(element, "### ") {
 					body += strings.Replace(element, "### ", "<h3>", 1) + "</h3>"
-					if !descriptionSet{
-					description = strings.Replace(element, "### ", "", 1)
-					descriptionSet = true 
-				}
+
 				} else if strings.HasPrefix(element, "% ") {
 					body += strings.Replace(element, "% ", "<img src='/static/images/", 1) + "'/>"
 					image = strings.Replace(element, "% ", "", 1)
@@ -72,6 +69,10 @@ func RenderHandlerHOF(t *template.Template, style string, darktheme string) func
 					body += strings.Replace(element, "~ ", "<div class='bloglink-container'><a class='bloglink' href='"+"/devLog/"+formatLink(strings.Replace(element, "~ ", "", 1))+"'>", 1) + "</a></div>"
 				} else if len(element) > 0 {
 					body += "<p>" + element + "</p>"
+					if !descriptionSet {
+						description = strings.Replace(element, "### ", "", 1)
+						descriptionSet = true
+					}
 				}
 
 			}
