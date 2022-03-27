@@ -38,8 +38,8 @@ func RenderHandlerHOF(t *template.Template, style string, darktheme string) func
 		}
 
 		body := "<h1>Oh oh</h1><h2>We couldn't find that page</h2>"
-		title := "¯\\_(ツ)_/¯"
-		description := "Jæder42"
+		title := "Jæder42 - weird computer person"
+		description := "Stories about working in tech as well as tips and tricks."
 		image := "preview.png"
 		path := strings.ToLower(r.URL.Path)
 		if path == "/" {
@@ -50,6 +50,7 @@ func RenderHandlerHOF(t *template.Template, style string, darktheme string) func
 		if err == nil {
 			body = ""
 			arr := strings.Split(string(md), "\n")
+			descriptionSet := false
 			for _, element := range arr {
 				if strings.HasPrefix(element, "# ") {
 					// Refactor to use count for <hx>
@@ -60,6 +61,10 @@ func RenderHandlerHOF(t *template.Template, style string, darktheme string) func
 					description = strings.Replace(element, "## ", "", 1)
 				} else if strings.HasPrefix(element, "### ") {
 					body += strings.Replace(element, "### ", "<h3>", 1) + "</h3>"
+					if !descriptionSet{
+					description = strings.Replace(element, "### ", "", 1)
+					descriptionSet = true 
+				}
 				} else if strings.HasPrefix(element, "% ") {
 					body += strings.Replace(element, "% ", "<img src='/static/images/", 1) + "'/>"
 					image = strings.Replace(element, "% ", "", 1)
