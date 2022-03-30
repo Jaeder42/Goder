@@ -17,9 +17,6 @@ func redirectTLS(w http.ResponseWriter, r *http.Request) {
 
 func main() {
 
-	go http.ListenAndServe(":80", http.HandlerFunc(redirectTLS))
-	mux := http.NewServeMux()
-
 	t, err := template.ParseFiles("./static/index.html")
 	if err != nil {
 		log.Fatal(err)
@@ -41,21 +38,23 @@ func main() {
 
 	fs := http.FileServer(http.Dir("./static"))
 
-	mux.Handle("/static/", http.StripPrefix("/static", fs))
+	if err != nil {
+		log.Fatal(err)
+	}
 
-	mux.HandleFunc("/", controllers.RenderHandlerHOF(t, string(style), string(dark)))
+	http.Handle("/static/", http.StripPrefix("/static", fs))
+
+	http.HandleFunc("/", controllers.RenderHandlerHOF(t, string(style), string(dark)))
 
 	fmt.Println("Starting server at port 443")
-	if err := http.ListenAndServeTLS(":443", "/etc/letsencrypt/live/jaeder42.tech/fullchain.pem", "/etc/letsencrypt/live/jaeder42.tech/privkey.pem", nil); err != nil {
-		fmt.Println("Server could not start on port 443, attempting 80")
+	if err := http.ListenAndServe(":1337", nil); err != nil {
+		fmt.Println("Server could not start on port 1337, attempting 80")
 		if err := http.ListenAndServe(":80", nil); err != nil {
 			fmt.Println("Server could not start on 80, falling back to 8080")
 			if err := http.ListenAndServe(":8080", nil); err != nil {
 				log.Fatal(err)
 			}
+
 		}
 	}
-	// 	if err := http.ListenAndServe(":80", http.HandlerFunc(redirectTLS)); err != nil {
-	// 		log.Fatal(err)
-	// }
 }
