@@ -70,7 +70,7 @@ func RenderHandlerHOF(t *template.Template, style string, darktheme string) func
 				} else if len(element) > 0 {
 					body += "<p>" + element + "</p>"
 					if !descriptionSet {
-						description += strings.Replace(element, "### ", "", 1)
+						description += element
 						descriptionSet = true
 					}
 				}
