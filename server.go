@@ -46,9 +46,9 @@ func main() {
 
 	http.HandleFunc("/", controllers.RenderHandlerHOF(t, string(style), string(dark)))
 
-	fmt.Println("Starting server at port 443")
-	if err := http.ListenAndServe(":1337", nil); err != nil {
-		fmt.Println("Server could not start on port 1337, attempting 80")
+	fmt.Println("Starting server at port 3001")
+	if err := http.ListenAndServe(":3001", nil); err != nil {
+		fmt.Println("Server could not start on port 30001, attempting 80")
 		if err := http.ListenAndServe(":80", nil); err != nil {
 			fmt.Println("Server could not start on 80, falling back to 8080")
 			if err := http.ListenAndServe(":8080", nil); err != nil {
