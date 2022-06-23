@@ -2,6 +2,7 @@
 
 ## Weird computer person
 
+  
 <div class="start">
 % floppyOpAlt.png
 </div>
