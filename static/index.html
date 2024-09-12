@@ -1,53 +1,48 @@
 <html>
-  <head>
-    <title>{{ .Title }}</title>
-    <meta name="title" content="Jæder42 - {{ .Title }}" />
-    <meta name="description" content="{{ .Description }}" />
+    <head>
+        <title>{{ .Title }}</title>
+        <meta name="title" content="Jæder42 - {{ .Title }}" />
+        <meta name="description" content="{{ .Description }}" />
 
-    <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="{{ .URL }}" />
-    <meta property="og:title" content="Jæder42 - {{ .Title }}" />
-    <meta property="og:description" content="{{ .Description }}" />
-    <meta property="og:image" content="/static/images/{{ .Image }}" />
+        <!-- Open Graph / Facebook -->
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="{{ .URL }}" />
+        <meta property="og:title" content="Jæder42 - {{ .Title }}" />
+        <meta property="og:description" content="{{ .Description }}" />
+        <meta property="og:image" content="/static/images/{{ .Image }}" />
 
-    <!-- Twitter -->
-    <meta property="twitter:card" content="summary_large_image" />
-    <meta property="twitter:url" content="{{ .URL }}" />
-    <meta property="twitter:title" content="Jæder42 - {{ .Title }}" />
-    <meta property="twitter:description" content="{{ .Description }}" />
-    <meta property="twitter:image" content="/static/images/{{ .Image }}" />
+        <!-- Twitter -->
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="{{ .URL }}" />
+        <meta property="twitter:title" content="Jæder42 - {{ .Title }}" />
+        <meta property="twitter:description" content="{{ .Description }}" />
+        <meta property="twitter:image" content="/static/images/{{ .Image }}" />
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" href="/static/images/floppyOpAlt.png" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap"
-      rel="stylesheet"
-    />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="icon" href="/static/images/floppyOpAlt.png" />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap"
+            rel="stylesheet"
+        />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap"
+            rel="stylesheet"
+        />
 
-    <style>
-      {{ .Style }}
-    </style>
+        <style>
+            {{ .Style }}
+        </style>
+    </head>
 
-  </head>
+    <body>
+        <div class="header">
+            <a href="/">Home</a>
+            <a href="/devlog">devLog</a>
+            <a href="/about">About</a>
+            <!-- <a href="#theme">Light</a> -->
+        </div>
 
-  <body>
-    <div class="header">
-      <a href="/">Home</a>
-      <a href="/devlog">devLog</a>
-      <a href="/about">About</a>
-      <!-- <a href="#theme">Light</a> -->
-    </div>
-
-    <div class="content">
-      {{ .Body }}
-    </div>
-    <div class="footer">©Jæder 2023
-    </div>
-    
-  </body>
+        <div class="content">{{ .Body }}</div>
+        <div class="footer">©Jæder 2024</div>
+    </body>
 </html>
