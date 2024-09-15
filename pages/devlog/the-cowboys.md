@@ -17,13 +17,13 @@ He sees this town for what it could be! He wants to help anyone with the problem
 # The Artist
 Not everything needs to be function over form, even in a run down town like this. She wants visitors to find their way to the local saloon without having to ask directions.
 
-# The [Scrum]
+# The Sprint Wrangler
 Someone needs to keep track of all these Cowboys running around, sure they all say they're working on something, but she has a way of getting everyone focused on what is most important right now!
 
-# The [Tester]
+# The Breaker
 Hey does that door open anymore? Why does this wall have a doorknob? Somehow the bar is being tended by a cow from the nearby farm.. She has a way of finding all the ways someone screwed something up, usually before any visitors notice anything!
 
-# The [Fullstack]
+# The Dirt Farmer
 Someone needs to just get down and dirty, get that cow out of the saloon... He just rolls up his sleeves and gets shit done.
 
 # The Wrecking Ball
